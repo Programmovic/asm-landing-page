@@ -42,7 +42,7 @@ const Home: NextPage = () => {
         description="Free SaaS"
       />
       <Box>
-        <HeroSection bgColor={bgColorEven} />
+        <HeroSection />
 
         <HighlightsSection bgColor={bgColorOdd} />
 
@@ -58,9 +58,9 @@ const Home: NextPage = () => {
   );
 };
 
-const HeroSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
+const HeroSection: React.FC = () => {
   return (
-    <Box bg={bgColor} position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
       <Container maxW="container.xl" pt="20" pb="20">
         <Stack direction={{ base: "column", lg: "row" }} alignItems="center" spacing={{ base: "10", lg: "20" }}>
