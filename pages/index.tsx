@@ -5,71 +5,36 @@ import {
   Container,
   Box,
   Stack,
-  HStack,
-  ButtonGroup,
-  Button,
-  Icon,
-  Heading,
+  VStack,
   Text,
+  Heading,
   Wrap,
   Tag,
   useClipboard,
-  IconButton,
-  VStack,
-  Flex,
+  ButtonGroup,
+  Button,
+  Icon,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { SEO } from "components/seo/seo";
-
 import { FallInPlace } from "components/motion/fall-in-place";
 import { Hero } from "components/hero";
-import { Link, Br } from "@saas-ui/react";
-import { Em } from "components/typography";
-import { NextjsLogo, ChakraLogo } from "components/logos";
-import {
-  FiUser,
-  FiTool,
-  FiUsers,
-  FiShoppingCart,
-  FiBarChart,
-} from "react-icons/fi";
-
-import {
-  FiArrowRight,
-  FiBox,
-  FiCheck,
-  FiCode,
-  FiCopy,
-  FiFlag,
-  FiGrid,
-  FiLock,
-  FiSearch,
-  FiSliders,
-  FiSmile,
-  FiTerminal,
-  FiThumbsUp,
-  FiToggleLeft,
-  FiTrendingUp,
-  FiUserPlus,
-} from "react-icons/fi";
+import { ButtonLink } from "components/button-link/button-link";
 import { Features } from "components/features";
 import { BackgroundGradient } from "components/gradients/background-gradient";
 import { Faq } from "components/faq";
 import { Pricing } from "components/pricing/pricing";
-
-import { ButtonLink } from "components/button-link/button-link";
 import { Testimonial, Testimonials } from "components/testimonials";
-
+import { Highlights, HighlightsItem, HighlightsTestimonialItem } from "components/highlights";
 import faq from "data/faq";
 import testimonials from "data/testimonials";
 import pricing from "data/pricing";
-
-import {
-  Highlights,
-  HighlightsItem,
-  HighlightsTestimonialItem,
-} from "components/highlights";
+import { FiUser, FiTool, FiBox, FiUsers, FiShoppingCart, FiBarChart, FiArrowRight, FiTrendingUp, FiUserPlus } from "react-icons/fi";
 
 const Home: NextPage = () => {
+  const bgColorEven = useColorModeValue('gray.50', 'gray.800');
+  const bgColorOdd = useColorModeValue('white', 'gray.900');
+
   return (
     <Box>
       <SEO
@@ -77,25 +42,25 @@ const Home: NextPage = () => {
         description="Free SaaS"
       />
       <Box>
-        <HeroSection />
+        <HeroSection bgColor={bgColorEven} />
 
-        <HighlightsSection />
+        <HighlightsSection bgColor={bgColorOdd} />
 
-        <FeaturesSection />
+        <FeaturesSection bgColor={bgColorEven} />
 
-        <TestimonialsSection />
+        <TestimonialsSection bgColor={bgColorOdd} />
 
-        <PricingSection />
+        <PricingSection bgColor={bgColorEven} />
 
-        <FaqSection />
+        <FaqSection bgColor={bgColorOdd} />
       </Box>
     </Box>
   );
 };
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
   return (
-    <Box position="relative" overflow="hidden">
+    <Box bg={bgColor} position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
       <Container maxW="container.xl" pt="20" pb="20">
         <Stack direction={{ base: "column", lg: "row" }} alignItems="center" spacing={{ base: "10", lg: "20" }}>
@@ -121,7 +86,7 @@ const HeroSection: React.FC = () => {
                   </ButtonLink>
                   <ButtonLink
                     size="lg"
-                    href="https://demo.saas-ui.dev"
+                    href="https://auto-stock-market.vercel.app"
                     variant="outline"
                     rightIcon={
                       <Icon
@@ -142,13 +107,9 @@ const HeroSection: React.FC = () => {
               </FallInPlace>
             </Hero>
           </VStack>
-          <Box
-            display={{ base: "none", lg: "block" }}
-            
-          >
+          <Box display={{ base: "none", lg: "block" }}>
             <FallInPlace delay={1}>
-              <Box overflow="hidden" flex="1"
-            justifyContent='end'>
+              <Box overflow="hidden" flex="1" justifyContent='end'>
                 <Image
                   src="/static/images/home-img.svg"
                   layout="intrinsic"
@@ -222,150 +183,151 @@ const HeroSection: React.FC = () => {
   );
 };
 
-const HighlightsSection = () => {
+const HighlightsSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
   const { value, onCopy, hasCopied } = useClipboard("npm install asm-autostockmaster");
 
   return (
-    <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core Features">
-        <VStack alignItems="flex-start" spacing="8">
-          <Text color="muted" fontSize="xl">
-            Get started with ASM AutoStockMaster and manage your business with
-            <em> ease and efficiency</em>. From customer relationship management to
-            comprehensive reports and analytics, ASM has got you covered.
+    <Box bg={bgColor} py="20">
+      <Highlights>
+        <HighlightsItem colSpan={[1, null, 2]} title="Core Features">
+          <VStack alignItems="flex-start" spacing="8">
+            <Text color="muted" fontSize="xl">
+              Get started with ASM AutoStockMaster and manage your business with
+              <em> ease and efficiency</em>. From customer relationship management to
+              comprehensive reports and analytics, ASM has got you covered.
+            </Text>
+          </VStack>
+        </HighlightsItem>
+        <HighlightsItem title="Solid Foundations">
+          <Text color="muted" fontSize="lg">
+            ASM AutoStockMaster is built on reliable and established technologies
+            to ensure high performance and scalability for your business needs.
           </Text>
-
-          
-        </VStack>
-      </HighlightsItem>
-      <HighlightsItem title="Solid Foundations">
-        <Text color="muted" fontSize="lg">
-          ASM AutoStockMaster is built on reliable and established technologies
-          to ensure high performance and scalability for your business needs.
-        </Text>
-      </HighlightsItem>
-      <HighlightsTestimonialItem
-        name="B-Circles"
-        description="Founder"
-        avatar="/static/images/avatar.jpg"
-        gradient={["pink.200", "purple.500"]}
-      >
-        “ASM AutoStockMaster helped us streamline our operations and manage our inventory efficiently. It&apos;s a game-changer for our business.”
-      </HighlightsTestimonialItem>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Start Managing Your Business Efficiently"
-      >
-        <Text color="muted" fontSize="lg">
-          ASM AutoStockMaster provides all the essential tools you need to run your business smoothly. 
-          Focus on what makes your business unique while we take care of the rest.
-        </Text>
-        <Wrap mt="8">
-          {[
-            "customer relationship management",
-            "inventory management",
-            "maintenance",
-            "human resource management",
-            "sales management",
-            "purchase management",
-            "reports",
-            "analytics",
-            "technical support",
-            "storage management",
-            "user accounts",
-          ].map((value) => (
-            <Tag
-              key={value}
-              variant="subtle"
-              colorScheme="purple"
-              rounded="full"
-              px="3"
-            >
-              {value}
-            </Tag>
-          ))}
-        </Wrap>
-      </HighlightsItem>
-    </Highlights>
-  );
-};
-
-
-const FeaturesSection = () => {
-  return (
-    <Features
-      id="features"
-      title={
-        <Heading
-          lineHeight="short"
-          fontSize={["2xl", null, "4xl"]}
-          textAlign="left"
-          as="p"
+        </HighlightsItem>
+        <HighlightsTestimonialItem
+          name="B-Circles"
+          description="Founder"
+          avatar="/static/images/avatar.jpg"
+          gradient={["pink.200", "purple.500"]}
         >
-          Facilitate your work & manage it professionally
-          <Br /> with ASM.
-        </Heading>
-      }
-      description={
-        <>
-          ASM provides a comprehensive suite of tools to manage your business
-          effectively.
-          <Br />
-          Explore the features and see how ASM can benefit your organization.
-        </>
-      }
-      align="left"
-      columns={[1, 2, 3]}
-      iconSize={4}
-      features={[
-        {
-          title: "Customer Relationship Management",
-          icon: FiUserPlus,
-          description:
-            "Manage customer interactions, track sales, and enhance customer satisfaction.",
-          variant: "inline",
-        },
-        {
-          title: "Inventory Management",
-          icon: FiBox,
-          description:
-            "Keep track of your inventory, manage stock levels, and streamline your supply chain.",
-          variant: "inline",
-        },
-        {
-          title: "Maintenance",
-          icon: FiTool,
-          description:
-            "Schedule and track maintenance tasks to ensure everything runs smoothly.",
-          variant: "inline",
-        },
-        {
-          title: "Human Resource Management",
-          icon: FiUsers,
-          description:
-            "Manage employee records, track attendance, and handle payroll efficiently.",
-          variant: "inline",
-        },
-        {
-          title: "Sales & Purchase Management",
-          icon: FiShoppingCart,
-          description:
-            "Manage sales orders, purchase orders, and keep your sales process organized.",
-          variant: "inline",
-        },
-        {
-          title: "Reports & Analytics",
-          icon: FiTrendingUp,
-          description:
-            "Generate detailed reports and gain insights with comprehensive analytics tools.",
-          variant: "inline",
-        },
-      ]}
-    />
+          “ASM AutoStockMaster helped us streamline our operations and manage our inventory efficiently. It&apos;s a game-changer for our business.”
+        </HighlightsTestimonialItem>
+        <HighlightsItem
+          colSpan={[1, null, 2]}
+          title="Start Managing Your Business Efficiently"
+        >
+          <Text color="muted" fontSize="lg">
+            ASM AutoStockMaster provides all the essential tools you need to run your business smoothly. 
+            Focus on what makes your business unique while we take care of the rest.
+          </Text>
+          <Wrap mt="8">
+            {[
+              "customer relationship management",
+              "inventory management",
+              "maintenance",
+              "human resource management",
+              "sales management",
+              "purchase management",
+              "reports",
+              "analytics",
+              "technical support",
+              "storage management",
+              "user accounts",
+            ].map((value) => (
+              <Tag
+                key={value}
+                variant="subtle"
+                colorScheme="purple"
+                rounded="full"
+                px="3"
+              >
+                {value}
+              </Tag>
+            ))}
+          </Wrap>
+        </HighlightsItem>
+      </Highlights>
+    </Box>
   );
 };
 
-const TestimonialsSection = () => {
+const FeaturesSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
+  return (
+    <Box bg={bgColor} py="20">
+      <Features
+        id="features"
+        title={
+          <Heading
+            lineHeight="short"
+            fontSize={["2xl", null, "4xl"]}
+            textAlign="left"
+            as="p"
+          >
+            Facilitate your work & manage it professionally
+            <br /> with ASM.
+          </Heading>
+        }
+        description={
+          <>
+            ASM provides a comprehensive suite of tools to manage your business
+            effectively.
+            <br />
+            Explore the features and see how ASM can benefit your organization.
+          </>
+        }
+        align="left"
+        columns={[1, 2, 3]}
+        iconSize={4}
+        features={[
+          {
+            title: "Customer Relationship Management",
+            icon: FiUserPlus,
+            description:
+              "Manage customer interactions, track sales, and enhance customer satisfaction.",
+            variant: "inline",
+          },
+          {
+            title: "Inventory Management",
+            icon: FiBox,
+            description:
+              "Keep track of your inventory, manage stock levels, and streamline your supply chain.",
+            variant: "inline",
+          },
+          {
+            title: "Maintenance",
+            icon: FiTool,
+            description:
+              "Schedule and track maintenance tasks to ensure everything runs smoothly.",
+            variant: "inline",
+          },
+          {
+            title: "Human Resource Management",
+            icon: FiUsers,
+            description:
+              "Manage employee records, track attendance, and handle payroll efficiently.",
+            variant: "inline",
+          },
+          {
+            title: "Sales & Purchase Management",
+            icon: FiShoppingCart,
+            description:
+              "Manage sales orders, purchase orders, and keep your sales process organized.",
+            variant: "inline",
+          },
+          {
+            title: "Reports & Analytics",
+            icon: FiTrendingUp,
+            description:
+              "Generate detailed reports and gain insights with comprehensive analytics tools.",
+            variant: "inline",
+          },
+        ]}
+      />
+    </Box>
+  );
+};
+
+const TestimonialsSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
   const columns = React.useMemo(() => {
     return testimonials.items.reduce<Array<typeof testimonials.items>>(
       (columns, t, i) => {
@@ -378,36 +340,44 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <Testimonials
-      title={testimonials.title}
-      columns={[1, 2, 3]}
-      innerWidth="container.xl"
-    >
-      <>
-        {columns.map((column, i) => (
-          <Stack key={i} spacing="8">
-            {column.map((t, i) => (
-              <Testimonial key={i} {...t} />
-            ))}
-          </Stack>
-        ))}
-      </>
-    </Testimonials>
+    <Box bg={bgColor} py="20">
+      <Testimonials
+        title={testimonials.title}
+        columns={[1, 2, 3]}
+        innerWidth="container.xl"
+      >
+        <>
+          {columns.map((column, i) => (
+            <Stack key={i} spacing="8">
+              {column.map((t, i) => (
+                <Testimonial key={i} {...t} />
+              ))}
+            </Stack>
+          ))}
+        </>
+      </Testimonials>
+    </Box>
   );
 };
 
-const PricingSection = () => {
+const PricingSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
   return (
-    <Pricing {...pricing}>
-      <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location.
-      </Text>
-    </Pricing>
+    <Box bg={bgColor}>
+      <Pricing {...pricing}>
+        <Text p="8" textAlign="center" color="muted">
+          VAT may be applicable depending on your location.
+        </Text>
+      </Pricing>
+    </Box>
   );
 };
 
-const FaqSection = () => {
-  return <Faq {...faq} />;
+const FaqSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
+  return (
+    <Box bg={bgColor} py="20">
+      <Faq {...faq} />
+    </Box>
+  );
 };
 
 export default Home;
