@@ -28,6 +28,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated"
-  ],
+, "components/pricing/pricing.tsx"  ],
   "exclude": ["node_modules"]
 }

@@ -26,7 +26,7 @@ const countryToCurrency = {
 };
 
 // Function to convert prices
-const convertPrice = (priceInAED, exchangeRate) => {
+const convertPrice = (priceInAED: any, exchangeRate: any) => {
   const convertedPrice = priceInAED * exchangeRate;
   return (Math.round(convertedPrice / 100) * 100).toFixed(2);
 };

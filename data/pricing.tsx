@@ -9,7 +9,7 @@ export default {
       id: "basic",
       title: "Basic Package",
       description: "Essential features for starting out.",
-      price: "136.13",
+      price: 136.13,
       features: [
         {
           title: "Inventory Management",
@@ -32,7 +32,7 @@ export default {
       id: "standard",
       title: "Standard Package",
       description: "Perfect for small operations.",
-      price: "272.26",
+      price: 272.26,
       isRecommended: true,
       features: [
         {
@@ -68,7 +68,7 @@ export default {
       id: "premium",
       title: "Premium Package",
       description: "For large enterprises and unlimited management.",
-      price: "408.39",
+      price: 408.39,
       features: [
         {
           title: "Inventory Management",
