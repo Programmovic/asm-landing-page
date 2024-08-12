@@ -355,6 +355,7 @@ const TestimonialsSection: React.FC<{ bgColor: string }> = ({ bgColor }) => {
             </Stack>
           ))}
         </>
+        {/* // */}
       </Testimonials>
     </Box>
   );
