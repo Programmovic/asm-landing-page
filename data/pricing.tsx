@@ -1,88 +1,118 @@
-import { HStack, Text } from '@chakra-ui/react'
+import { HStack, Text } from "@chakra-ui/react";
 
 export default {
-  title: 'Pricing for every stage',
+  title: "Pricing for every stage",
   description:
-    'Choose the plan that best suits your needs and get professional management tools.',
+    "Choose the plan that best suits your needs and get professional management tools.",
   plans: [
     {
-      id: 'standard',
-      title: 'Standard Package',
-      description: 'Perfect for small operations.',
-      price: '$ 115.00 / Month',
+      id: "basic",
+      title: "Basic Package",
+      description: "Essential features for starting out.",
+      price: "136.13",
       features: [
         {
-          title: 'Manage 50 cars',
+          title: "Inventory Management",
         },
         {
-          title: '5 user accounts',
+          title: "Basic Reporting",
         },
         {
-          title: 'Technical support via email',
+          title: "Customer Management",
         },
         {
-          title: '10 GB storage space',
-        },
-        {
-          title: 'Basic reports',
+          title: "Basic User Support",
         },
       ],
       action: {
-        href: '#',
+        href: "#",
       },
     },
     {
-      id: 'advanced',
-      title: 'Advanced Package',
-      description: 'Ideal for growing businesses.',
-      price: '$ 165.00 / Month',
+      id: "standard",
+      title: "Standard Package",
+      description: "Perfect for small operations.",
+      price: "272.26",
       isRecommended: true,
       features: [
         {
-          title: 'Manage 200 cars',
+          title: "Inventory Management",
         },
         {
-          title: '20 user accounts',
+          title: "Basic Reporting",
         },
         {
-          title: 'Technical support around the clock',
+          title: "Customer Management",
         },
         {
-          title: '50 GB storage space',
+          title: "Basic User Support",
         },
         {
-          title: 'Advanced reports & Data Analysis',
+          title: "Advanced Reporting and Analytics",
+        },
+        {
+          title: "Integration with Accounting Systems",
+        },
+        {
+          title: "Customizable User Roles",
+        },
+        {
+          title: "Email and Phone Support",
         },
       ],
       action: {
-        href: '#',
+        href: "#",
       },
     },
     {
-      id: 'premium',
-      title: 'Premium Package',
-      description: 'For large enterprises and unlimited management.',
-      price: '$ 220.00 / Month',
+      id: "premium",
+      title: "Premium Package",
+      description: "For large enterprises and unlimited management.",
+      price: "408.39",
       features: [
         {
-          title: 'Manage unlimited cars',
+          title: "Inventory Management",
         },
         {
-          title: 'Unlimited user accounts',
+          title: "Basic Reporting",
         },
         {
-          title: 'Personal Technical support',
+          title: "Customer Management",
         },
         {
-          title: 'Unlimited storage space',
+          title: "Basic User Support",
         },
         {
-          title: 'Special Reports & Data Analysis',
+          title: "Advanced Reporting and Analytics",
+        },
+        {
+          title: "Integration with Accounting Systems",
+        },
+        {
+          title: "Customizable User Roles",
+        },
+        {
+          title: "Email and Phone Support",
+        },
+        {
+          title: "Advanced Inventory Management",
+        },
+        {
+          title: "Integration with CRM Systems",
+        },
+        {
+          title: "Automated Notifications and Alerts",
+        },
+        {
+          title: "24/7 Support",
+        },
+        {
+          title: "Custom Development and Integration",
         },
       ],
       action: {
-        href: '#',
+        href: "#",
       },
     },
   ],
-}
+};
