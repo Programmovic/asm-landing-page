@@ -15,7 +15,7 @@ export const Logo = ({ href = '/', onClick }: LogoProps) => {
     logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
   } else {
     logo = (
-      <Heading as="h1" size="md">
+      <Heading as="h1" size="lg">
         {siteConfig.seo?.title}
       </Heading>
     )

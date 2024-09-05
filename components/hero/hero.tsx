@@ -11,7 +11,7 @@ export const Hero = ({ title, description, children, ...rest }: HeroProps) => {
       <Container>
         <VStack spacing={[4, null, 8]} alignItems="flex-start">
           <Text as="h1" textStyle="h1" textAlign="left">
-            {title}
+            Auto Stock Master
           </Text>
           <Text
             as="div"
