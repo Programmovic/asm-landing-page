@@ -6,7 +6,7 @@ import { FiCheck } from 'react-icons/fi'
 import { Logo } from './logo'
 
 const siteConfig = {
-  logo: null,
+  logo: "",
   seo: {
     title: 'ASM',
     description: 'ASM AutoStockMaster - The ultimate solution for managing your auto inventory efficiently.',
