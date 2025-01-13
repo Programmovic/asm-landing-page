@@ -33,7 +33,7 @@ const siteConfig = {
       },
       {
         label: 'Sign Up',
-        href: '/signup',
+        href: 'https://www.autostockmaster.com/en/authentication/register',
         variant: 'primary',
       },
     ],
