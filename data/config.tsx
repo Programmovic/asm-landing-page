@@ -29,7 +29,7 @@ const siteConfig = {
       },
       {
         label: 'Login',
-        href: '/login',
+        href: 'https://www.autostockmaster.com/en/authentication/login',
       },
       {
         label: 'Sign Up',
