@@ -19,9 +19,18 @@ const nextConfig = {
           },
         },
       ],
-    })
-    return config
+    });
+    return config;
   },
-}
+  async redirects() {
+    return [
+      {
+        source: '/login',
+        destination: 'https://www.autostockmaster.com/en/authentication/login',
+        permanent: false, // Temporary redirect (302)
+      },
+    ];
+  },
+};
 
-export default nextConfig
+export default nextConfig;
